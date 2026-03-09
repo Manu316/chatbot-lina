@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Asistente de Logística Internacional y Aduanas</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <main class="page">
+    <aside class="sidebar">
+      <section class="brand">
+        <div class="brand-badge">LA</div>
+        <div>
+          <h1>Asistente de Logística Internacional y Aduanas</h1>
+          <p>Resuelve dudas frecuentes de estudiantes sobre trámites, materias y procesos académicos.</p>
+        </div>
+      </section>
+
+      <section>
+        <h3 class="section-title">Preguntas rápidas</h3>
+        <div class="quick-list">
+          <button class="quick-btn" data-question="¿Qué necesito para reinscripción?">¿Qué necesito para reinscripción?</button>
+          <button class="quick-btn" data-question="¿Cómo inicio mi servicio social?">¿Cómo inicio mi servicio social?</button>
+          <button class="quick-btn" data-question="¿Qué hago si quiero dar de baja una materia?">¿Qué hago si quiero dar de baja una materia?</button>
+          <button class="quick-btn" data-question="¿Dónde consulto horarios y materias?">¿Dónde consulto horarios y materias?</button>
+        </div>
+      </section>
+
+      <section class="info-box">
+        <h3 class="section-title">Sugerencia</h3>
+        <p>Empieza conectando este frontend con tu endpoint <strong>/chat</strong>. Así podrás usar FAQs hoy y agregar documentos o IA después sin cambiar toda la interfaz.</p>
+      </section>
+
+      <section class="info-box">
+        <h3 class="section-title">Estado actual</h3>
+        <p id="apiStatus">Backend no verificado.</p>
+      </section>
+    </aside>
+
+    <section class="chat-card">
+      <header class="chat-header">
+        <div>
+          <h2>Chat estudiantil</h2>
+          <p>Haz una pregunta clara para obtener una mejor respuesta.</p>
+        </div>
+        <button class="clear-btn" id="clearChatBtn">Limpiar chat</button>
+      </header>
+
+      <div class="chat-messages" id="chatMessages"></div>
+
+      <footer class="chat-input-area">
+        <div class="input-box">
+          <textarea id="messageInput" placeholder="Escribe aquí tu duda sobre la carrera..."></textarea>
+          <button class="send-btn" id="sendBtn">Enviar</button>
+        </div>
+        <div class="footer-note">
+          Este asistente debe responder con información oficial o indicar cuando no encuentre una respuesta.
+        </div>
+      </footer>
+    </section>
+  </main>
+
+  <script src="js/chat.js"></script>
+</body>
+</html>

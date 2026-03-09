@@ -1,0 +1,14 @@
+[
+  {
+    "keywords": ["inscripción", "inscribirme", "nuevo ingreso"],
+    "answer": "Para la inscripción, revisa la convocatoria oficial, reúne los documentos solicitados y verifica fechas con control escolar."
+  },
+  {
+    "keywords": ["reinscripción", "reinscribirme", "materias"],
+    "answer": "Para la reinscripción, revisa tu carga académica, valida materias disponibles y sigue las fechas establecidas por la institución."
+  },
+  {
+    "keywords": ["servicio social"],
+    "answer": "Para iniciar servicio social, consulta los requisitos de avance académico y acude al área correspondiente para conocer el procedimiento."
+  }
+]
