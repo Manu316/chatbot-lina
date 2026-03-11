@@ -1,5 +1,6 @@
 const API_URL = "http://localhost:3000/chat";
 const USE_BACKEND = false;
+const SOLICITUD_IMAGE = "img/Solicitud.png";
 
 const chatMessages = document.getElementById("chatMessages");
 const messageInput = document.getElementById("messageInput");
@@ -39,14 +40,36 @@ Selecciona una opción escribiendo el número correspondiente:
     text:
 `Inscripción y reinscripción:
 
-1. Requisitos
-2. Documentación
-3. Fechas
+1. Cómo llenar la solicitud de inscripción
+2. Requisitos de reinscripción
+3. Documentación necesaria
+4. Fechas de inscripción
 9. Volver al menú principal`,
     options: {
-      "1": "inscripcion_requisitos",
-      "2": "inscripcion_documentacion",
-      "3": "inscripcion_fechas",
+      "1": "solicitud_inscripcion",
+      "2": "inscripcion_requisitos",
+      "3": "inscripcion_documentacion",
+      "4": "inscripcion_fechas",
+      "9": "main"
+    }
+  },
+
+  solicitud_inscripcion: {
+    text:
+`Cómo llenar la solicitud de inscripción:
+
+1. Ver instrucciones generales
+2. Ver imagen de ejemplo con apartados numerados
+3. Qué va en cada apartado
+4. Qué revisar antes de entregarla
+5. Ver enlace de horarios
+9. Volver al menú principal`,
+    options: {
+      "1": "solicitud_general",
+      "2": "solicitud_imagen",
+      "3": "solicitud_apartados",
+      "4": "solicitud_revision",
+      "5": "solicitud_horarios",
       "9": "main"
     }
   },
@@ -125,8 +148,84 @@ Selecciona una opción escribiendo el número correspondiente:
 };
 
 const finalResponses = {
+  solicitud_general:
+    `Guía para llenar la Solicitud de Inscripción a Créditos.
+Periodo: Agosto 2026 – Enero 2027.
+
+Antes de iniciar, se recomienda tener a la mano:
+- Matrícula
+- Horario de experiencias educativas
+- Datos personales actualizados
+
+Importante: las materias que aparecen en la imagen son solo un ejemplo ilustrativo. Cada estudiante deberá usar la solicitud correspondiente a su grupo, la cual podrá encontrar publicada en Eminus.`,
+
+  solicitud_imagen: {
+    text:
+`Aquí puedes ver un ejemplo de la Solicitud de Inscripción a Créditos con los apartados numerados.
+
+Los números indican qué información corresponde en cada espacio del formato. Revísala cuidadosamente antes de llenar tu solicitud.`,
+    image: {
+      src: SOLICITUD_IMAGE,
+      alt: "Ejemplo de solicitud de inscripción"
+    },
+    link: {
+      href: SOLICITUD_IMAGE,
+      text: "Abrir imagen en grande"
+    }
+  },
+
+  solicitud_apartados:
+    `La solicitud se llena de la siguiente manera:
+
+1. Nombre completo
+Debes escribir primer apellido, segundo apellido y nombre(s), exactamente como aparecen en el sistema institucional.
+
+2. Matrícula
+Anota tu número de matrícula completo asignado por la Universidad Veracruzana.
+
+3. Domicilio actual
+Escribe tu dirección completa, incluyendo calle, número, colonia, código postal y municipio.
+
+4. Contacto de emergencia
+Anota el nombre completo de la persona a contactar en caso de emergencia y su número de teléfono.
+
+5. Número de seguro médico
+Escribe tu Número de Seguridad Social (NSS) correspondiente al servicio médico con el que cuentas, por ejemplo IMSS.
+
+6. Correo electrónico y número telefónico
+Escribe un correo electrónico activo y un número de teléfono vigente.
+
+7. Inscripción a experiencias educativas
+Debes indicar las experiencias educativas que cursarás durante el periodo y verificar que cada materia coincida con su NRC correspondiente.
+
+8. Tutor(a) académico(a)
+Escribe el nombre de tu tutor o tutora académica asignado por el programa educativo.
+
+9. Fecha y firma del alumno(a)
+Debes escribir la fecha correspondiente y firmar en el apartado de Firma del Alumno(a).`,
+
+  solicitud_revision:
+    `Antes de entregar la solicitud, revisa cuidadosamente lo siguiente:
+
+- Que tu nombre esté escrito correctamente
+- Que tu matrícula sea correcta
+- Que tu domicilio actual esté completo
+- Que el contacto de emergencia tenga nombre completo y teléfono
+- Que tu NSS esté escrito correctamente
+- Que tu correo y número telefónico estén actualizados
+- Que el NRC corresponda a la experiencia educativa correcta
+- Que el horario coincida con el grupo seleccionado
+- Que no existan empalmes de horario
+- Que hayas escrito el nombre de tu tutor(a)
+- Que la solicitud tenga fecha y firma del alumno(a)`,
+
+  solicitud_horarios:
+    `Para confirmar NRC y horarios correctamente, consulta el listado oficial en el siguiente enlace:
+
+https://www.uv.mx/coatza/admon/horarios/`,
+
   inscripcion_requisitos:
-    `Para inscripción o reinscripción, normalmente debes revisar la convocatoria o fechas oficiales, validar tu situación académica y seguir el procedimiento institucional correspondiente.`,
+    `Para reinscripción, normalmente debes revisar la convocatoria o fechas oficiales, validar tu situación académica y seguir el procedimiento institucional correspondiente.`,
 
   inscripcion_documentacion:
     `La documentación puede variar según el trámite. Lo más recomendable es consultar la información oficial de la carrera o control escolar para confirmar requisitos actualizados.`,
@@ -168,7 +267,7 @@ const finalResponses = {
     `Antes de contactar a coordinación, ten a la mano tu información académica relevante, el detalle del problema y, si aplica, capturas o evidencias.`
 };
 
-function addMessage(text, sender = "bot") {
+function addMessage(content, sender = "bot") {
   const wrapper = document.createElement("div");
   wrapper.className = `message-wrap ${sender}`;
 
@@ -178,7 +277,34 @@ function addMessage(text, sender = "bot") {
 
   const bubble = document.createElement("div");
   bubble.className = `message ${sender}`;
-  bubble.textContent = text;
+
+  if (typeof content === "string") {
+    bubble.textContent = content;
+  } else {
+    if (content.text) {
+      const textBlock = document.createElement("div");
+      textBlock.textContent = content.text;
+      bubble.appendChild(textBlock);
+    }
+
+    if (content.image) {
+      const image = document.createElement("img");
+      image.src = content.image.src;
+      image.alt = content.image.alt || "Imagen";
+      image.className = "chat-image";
+      bubble.appendChild(image);
+    }
+
+    if (content.link) {
+      const link = document.createElement("a");
+      link.href = content.link.href;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.className = "chat-image-link";
+      link.textContent = content.link.text || "Abrir imagen";
+      bubble.appendChild(link);
+    }
+  }
 
   wrapper.appendChild(label);
   wrapper.appendChild(bubble);
@@ -257,9 +383,18 @@ function getMenuResponse(input) {
   const response = finalResponses[nextStep];
 
   if (response) {
-    return `${response}
+    if (typeof response === "string") {
+      return `${response}
 
 Escribe 9 para volver al menú principal.`;
+    }
+
+    return {
+      ...response,
+      text: `${response.text}
+
+Escribe 9 para volver al menú principal.`
+    };
   }
 
   return "No encontré información para esa opción.";

@@ -232,6 +232,7 @@ body {
   font-size: 15px;
   white-space: pre-wrap;
   word-wrap: break-word;
+  overflow-wrap: break-word;
   border: 1px solid var(--border);
 }
 
@@ -243,6 +244,28 @@ body {
 .message.user {
   background: var(--user);
   border-top-right-radius: 8px;
+}
+
+.chat-image {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  margin-top: 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.chat-image-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.chat-image-link:hover {
+  text-decoration: underline;
 }
 
 .typing {
@@ -349,5 +372,9 @@ body {
 
   .message-wrap {
     max-width: 90%;
+  }
+
+  .chat-image {
+    max-width: 100%;
   }
 }
