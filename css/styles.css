@@ -16,22 +16,29 @@
   box-sizing: border-box;
 }
 
+html,
 body {
   margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
   font-family: Arial, Helvetica, sans-serif;
   background: linear-gradient(180deg, #eef4fb 0%, #f8fbff 100%);
   color: var(--text);
-  min-height: 100vh;
+  overflow: hidden;
 }
 
 .page {
   max-width: 1200px;
   margin: 0 auto;
   padding: 24px;
-  min-height: 100vh;
+  height: 100vh;
   display: grid;
   grid-template-columns: 320px 1fr;
   gap: 24px;
+  align-items: stretch;
 }
 
 .sidebar,
@@ -40,6 +47,7 @@ body {
   border: 1px solid var(--border);
   border-radius: 24px;
   box-shadow: var(--shadow);
+  min-height: 0;
 }
 
 .sidebar {
@@ -47,6 +55,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  overflow-y: auto;
 }
 
 .brand {
@@ -65,6 +74,7 @@ body {
   place-items: center;
   font-size: 22px;
   font-weight: bold;
+  flex-shrink: 0;
 }
 
 .brand h1 {
@@ -133,7 +143,7 @@ body {
 .chat-card {
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - 48px);
+  height: 100%;
   overflow: hidden;
 }
 
@@ -144,6 +154,7 @@ body {
   justify-content: space-between;
   align-items: center;
   gap: 16px;
+  flex-shrink: 0;
 }
 
 .chat-header h2 {
@@ -166,12 +177,29 @@ body {
 
 .chat-messages {
   flex: 1;
+  min-height: 0;
   padding: 22px;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
   gap: 16px;
   background: linear-gradient(180deg, #ffffff 0%, #f9fbfd 100%);
+}
+
+.chat-messages::-webkit-scrollbar,
+.sidebar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb,
+.sidebar::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+.chat-messages::-webkit-scrollbar-track,
+.sidebar::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 .message-wrap {
@@ -255,6 +283,7 @@ body {
   border-top: 1px solid var(--border);
   padding: 18px 22px 22px;
   background: var(--panel);
+  flex-shrink: 0;
 }
 
 .input-box {
@@ -298,13 +327,24 @@ body {
 }
 
 @media (max-width: 920px) {
+  body {
+    overflow: auto;
+  }
+
   .page {
     grid-template-columns: 1fr;
     padding: 14px;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .sidebar {
+    max-height: none;
+    overflow: visible;
   }
 
   .chat-card {
-    min-height: calc(100vh - 28px);
+    height: 80vh;
   }
 
   .message-wrap {
