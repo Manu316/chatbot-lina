@@ -19,19 +19,25 @@ const menuTree = {
 Selecciona una opción escribiendo el número correspondiente:
 
 1. Inscripción y reinscripción
-2. Servicio social
-3. Baja de materias
-4. Horarios y materias
-5. Constancias
-6. Contacto con coordinación
+2. Acreditación ingles
+3. Alta de materias
+4. Baja de materias
+5. Horarios y materias (pagina de la facultad)
+6. Tramites (mandar al sitLina)
+7. Contacto con coordinación
+8. Baja temporal del periodo
+9. Baja definitiva
 0. Ver menú principal nuevamente`,
     options: {
       "1": "inscripcion",
-      "2": "servicio",
-      "3": "baja",
-      "4": "horarios",
-      "5": "constancias",
-      "6": "contacto",
+      "2": "ingles",
+      "3": "alta",
+      "4": "baja",
+      "5": "horarios",
+      "6": "tramites",
+      "7": "contacto",
+      "8": "temporal",
+      "9": "definitiva",
       "0": "main"
     }
   },
@@ -74,7 +80,7 @@ Selecciona una opción escribiendo el número correspondiente:
     }
   },
 
-  servicio: {
+  ingles: {
     text:
 `Servicio social:
 
@@ -86,6 +92,20 @@ Selecciona una opción escribiendo el número correspondiente:
       "1": "servicio_requisitos",
       "2": "servicio_proceso",
       "3": "servicio_documentos",
+      "9": "main"
+    }
+  },
+
+  alta: {
+    text:
+`Baja de materias:
+
+1. Proceso general
+2. Recomendaciones
+9. Volver al menú principal`,
+    options: {
+      "1": "baja_proceso",
+      "2": "baja_recomendaciones",
       "9": "main"
     }
   },
@@ -118,7 +138,7 @@ Selecciona una opción escribiendo el número correspondiente:
     }
   },
 
-  constancias: {
+  tramites: {
     text:
 `Constancias:
 
@@ -144,7 +164,35 @@ Selecciona una opción escribiendo el número correspondiente:
       "2": "contacto_info",
       "9": "main"
     }
-  }
+  },
+
+  temporal: {
+    text:
+`Constancias:
+
+1. Cómo solicitarlas
+2. Recomendaciones
+9. Volver al menú principal`,
+    options: {
+      "1": "constancias_solicitud",
+      "2": "constancias_recomendaciones",
+      "9": "main"
+    }
+  },
+  
+  definitiva: {
+    text:
+`Constancias:
+
+1. Cómo solicitarlas
+2. Recomendaciones
+9. Volver al menú principal`,
+    options: {
+      "1": "constancias_solicitud",
+      "2": "constancias_recomendaciones",
+      "9": "main"
+    }
+  }  
 };
 
 const finalResponses = {
