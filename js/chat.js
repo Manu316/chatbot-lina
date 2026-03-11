@@ -314,8 +314,16 @@ https://www.uv.mx/coatza/admon/horarios/`,
   horarios_revision:
     `Antes de inscribirte, revisa que la experiencia educativa corresponda al NRC correcto, que el grupo sea el adecuado y que no exista cruce de horarios entre materias.`,
 
-  tramites_sitio:
-    `Para realizar trámites, consulta el sitio correspondiente de LINA (sitLina), donde podrás encontrar la información y acceso a los procedimientos disponibles.`,
+  tramites_sitio: {
+    text:
+  `Puedes realizar los trámites en el siguiente sitio oficial de LINA.
+
+Ahí encontrarás los formularios disponibles y las instrucciones para cada trámite.`,
+    link: {
+      href: "https://sitlina.com/solicitud.php",
+      text: "Ir al sitio de trámites"
+    }
+  },
 
   tramites_recomendaciones:
     `Antes de realizar un trámite, verifica que corresponda al periodo vigente, ten a la mano tu matrícula y revisa cuidadosamente los requisitos solicitados.`,
@@ -343,7 +351,7 @@ https://www.uv.mx/coatza/admon/horarios/`,
 
   definitiva_recomendaciones:
     `Antes de realizar una baja definitiva, asegúrate de conocer sus consecuencias académicas y administrativas, ya que puede tratarse de un trámite irreversible.`
-};
+  };
 
 function addMessage(content, sender = "bot") {
   const wrapper = document.createElement("div");
