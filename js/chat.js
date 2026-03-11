@@ -82,30 +82,30 @@ Selecciona una opción escribiendo el número correspondiente:
 
   ingles: {
     text:
-`Servicio social:
+`Acreditación de inglés:
 
-1. Requisitos
-2. Proceso de inicio
-3. Documentos necesarios
+1. Requisitos generales
+2. Formas de acreditar
+3. Dónde consultar información
 9. Volver al menú principal`,
     options: {
-      "1": "servicio_requisitos",
-      "2": "servicio_proceso",
-      "3": "servicio_documentos",
+      "1": "ingles_requisitos",
+      "2": "ingles_formas",
+      "3": "ingles_consulta",
       "9": "main"
     }
   },
 
   alta: {
     text:
-`Baja de materias:
+`Alta de materias:
 
 1. Proceso general
 2. Recomendaciones
 9. Volver al menú principal`,
     options: {
-      "1": "baja_proceso",
-      "2": "baja_recomendaciones",
+      "1": "alta_proceso",
+      "2": "alta_recomendaciones",
       "9": "main"
     }
   },
@@ -129,25 +129,25 @@ Selecciona una opción escribiendo el número correspondiente:
 `Horarios y materias:
 
 1. Dónde consultarlos
-2. Qué hacer si hay problemas
+2. Qué revisar antes de inscribirte
 9. Volver al menú principal`,
     options: {
       "1": "horarios_consulta",
-      "2": "horarios_problemas",
+      "2": "horarios_revision",
       "9": "main"
     }
   },
 
   tramites: {
     text:
-`Constancias:
+`Trámites:
 
-1. Cómo solicitarlas
-2. Recomendaciones
+1. Ir al sitio de trámites
+2. Recomendaciones antes de realizar un trámite
 9. Volver al menú principal`,
     options: {
-      "1": "constancias_solicitud",
-      "2": "constancias_recomendaciones",
+      "1": "tramites_sitio",
+      "2": "tramites_recomendaciones",
       "9": "main"
     }
   },
@@ -168,28 +168,32 @@ Selecciona una opción escribiendo el número correspondiente:
 
   temporal: {
     text:
-`Constancias:
+`Baja temporal del periodo:
 
-1. Cómo solicitarlas
-2. Recomendaciones
+1. Qué es la baja temporal
+2. Qué hacer para solicitarla
+3. Recomendaciones
 9. Volver al menú principal`,
     options: {
-      "1": "constancias_solicitud",
-      "2": "constancias_recomendaciones",
+      "1": "temporal_info",
+      "2": "temporal_proceso",
+      "3": "temporal_recomendaciones",
       "9": "main"
     }
   },
   
   definitiva: {
     text:
-`Constancias:
+`Baja definitiva:
 
-1. Cómo solicitarlas
-2. Recomendaciones
+1. Qué es la baja definitiva
+2. Qué hacer para solicitarla
+3. Recomendaciones
 9. Volver al menú principal`,
     options: {
-      "1": "constancias_solicitud",
-      "2": "constancias_recomendaciones",
+      "1": "definitiva_info",
+      "2": "definitiva_proceso",
+      "3": "definitiva_recomendaciones",
       "9": "main"
     }
   }  
@@ -281,14 +285,20 @@ https://www.uv.mx/coatza/admon/horarios/`,
   inscripcion_fechas:
     `Las fechas de inscripción y reinscripción dependen del periodo escolar vigente. Revisa los avisos oficiales o consulta directamente con la coordinación.`,
 
-  servicio_requisitos:
-    `Para iniciar servicio social, normalmente debes cumplir con el avance académico requerido y seguir el procedimiento que marque tu institución.`,
+  ingles_requisitos:
+    `Para acreditar inglés, debes revisar cuál es el nivel o requisito solicitado por tu programa educativo y verificar qué documentos o comprobantes acepta la facultad.`,
 
-  servicio_proceso:
-    `El proceso de inicio de servicio social generalmente incluye revisar requisitos, elegir programa o dependencia, entregar documentación y esperar validación.`,
+  ingles_formas:
+    `La acreditación de inglés puede realizarse según los medios autorizados por la institución, por ejemplo mediante constancia, certificado, examen o procedimiento interno, según corresponda.`,
 
-  servicio_documentos:
-    `Los documentos para servicio social pueden incluir formatos institucionales, identificación o comprobantes académicos. Verifica siempre la versión oficial vigente.`,
+  ingles_consulta:
+    `Para conocer el procedimiento exacto de acreditación de inglés, consulta la información oficial de tu facultad o comunícate con coordinación para confirmar requisitos vigentes.`,
+
+  alta_proceso:
+    `Para dar de alta materias, debes revisar la oferta disponible, validar NRC, horarios y seriación, y posteriormente realizar tu inscripción conforme al procedimiento indicado por tu programa educativo.`,
+
+  alta_recomendaciones:
+    `Antes de dar de alta materias, revisa que no existan empalmes de horario, que las experiencias educativas correspondan a tu avance académico y que el NRC sea correcto.`,
 
   baja_proceso:
     `Para dar de baja una materia, revisa primero si estás dentro del periodo permitido y consulta el procedimiento correspondiente con el área académica o escolar.`,
@@ -297,22 +307,42 @@ https://www.uv.mx/coatza/admon/horarios/`,
     `Antes de dar de baja una materia, considera cómo puede afectar tu carga académica, avance y seriación de experiencias educativas.`,
 
   horarios_consulta:
-    `Los horarios y materias normalmente se consultan en la plataforma institucional correspondiente o mediante los medios oficiales de la facultad.`,
+    `Los horarios y materias pueden consultarse en la página oficial de la facultad:
 
-  horarios_problemas:
-    `Si detectas errores en horarios o materias, lo recomendable es comunicarte con coordinación o con el área académica lo antes posible.`,
+https://www.uv.mx/coatza/admon/horarios/`,
 
-  constancias_solicitud:
-    `Para solicitar constancias, revisa el procedimiento institucional y confirma si el trámite se realiza en línea o de manera presencial.`,
+  horarios_revision:
+    `Antes de inscribirte, revisa que la experiencia educativa corresponda al NRC correcto, que el grupo sea el adecuado y que no exista cruce de horarios entre materias.`,
 
-  constancias_recomendaciones:
-    `Antes de solicitar una constancia, verifica qué tipo necesitas y si hay requisitos previos, pagos o tiempos de entrega.`,
+  tramites_sitio:
+    `Para realizar trámites, consulta el sitio correspondiente de LINA (sitLina), donde podrás encontrar la información y acceso a los procedimientos disponibles.`,
+
+  tramites_recomendaciones:
+    `Antes de realizar un trámite, verifica que corresponda al periodo vigente, ten a la mano tu matrícula y revisa cuidadosamente los requisitos solicitados.`,
 
   contacto_cuando:
     `Debes acudir con coordinación cuando tengas dudas sobre carga académica, trámites escolares, seguimiento de procesos o situaciones que no puedas resolver por medios institucionales.`,
 
   contacto_info:
-    `Antes de contactar a coordinación, ten a la mano tu información académica relevante, el detalle del problema y, si aplica, capturas o evidencias.`
+    `Antes de contactar a coordinación, ten a la mano tu información académica relevante, el detalle del problema y, si aplica, capturas o evidencias.`,
+
+  temporal_info:
+    `La baja temporal del periodo es un trámite mediante el cual el estudiante solicita suspender temporalmente sus estudios durante un periodo escolar, conforme a la normatividad aplicable.`,
+
+  temporal_proceso:
+    `Para solicitar la baja temporal, debes consultar el procedimiento vigente, reunir la documentación que te indiquen y dar seguimiento con la coordinación o el área correspondiente.`,
+
+  temporal_recomendaciones:
+    `Antes de solicitar la baja temporal, revisa las implicaciones académicas y administrativas que puede tener en tu trayectoria escolar.`,
+
+  definitiva_info:
+    `La baja definitiva es el trámite mediante el cual el estudiante solicita su separación permanente del programa educativo o de la institución, según corresponda.`,
+
+  definitiva_proceso:
+    `Para solicitar la baja definitiva, debes consultar el procedimiento oficial, entregar la documentación requerida y confirmar con el área correspondiente los pasos a seguir.`,
+
+  definitiva_recomendaciones:
+    `Antes de realizar una baja definitiva, asegúrate de conocer sus consecuencias académicas y administrativas, ya que puede tratarse de un trámite irreversible.`
 };
 
 function addMessage(content, sender = "bot") {
