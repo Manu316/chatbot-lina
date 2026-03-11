@@ -22,8 +22,8 @@ Selecciona una opción escribiendo el número correspondiente:
 2. Acreditación ingles
 3. Alta de materias
 4. Baja de materias
-5. Horarios y materias (pagina de la facultad)
-6. Tramites (mandar al sitLina)
+5. Horarios y materias
+6. Tramites
 7. Contacto con coordinación
 8. Baja temporal del periodo
 9. Baja definitiva
@@ -155,6 +155,7 @@ Selecciona una opción escribiendo el número correspondiente:
   contacto: {
     text:
 `Contacto con coordinación:
+llia_fcacoatza@.uv.mx
 
 1. Cuándo acudir
 2. Qué información tener lista
