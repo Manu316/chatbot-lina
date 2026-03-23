@@ -1,6 +1,10 @@
 const API_URL = "http://localhost:3000/chat";
 const USE_BACKEND = false;
 const SOLICITUD_IMAGE = "img/Solicitud.png";
+const TEMPORAL_IMAGE = "img/BAJA-TEMPORAL.png";
+const EXTEMPORANEA_DEFINITIVA_IMAGE = "img/baja extemporanea y definitiva.png";
+const PRESENTACION_IMAGE = "img/carta presentación.png";
+const EQUIVALENCIAS_IMAGE = "img/EQUIVALENCIAS.png";
 
 const chatMessages = document.getElementById("chatMessages");
 const messageInput = document.getElementById("messageInput");
@@ -338,8 +342,18 @@ Ahí encontrarás los formularios disponibles y las instrucciones para cada trá
   temporal_info:
     `La baja temporal del periodo es un trámite mediante el cual el estudiante solicita suspender temporalmente sus estudios durante un periodo escolar, conforme a la normatividad aplicable.`,
 
-  temporal_proceso:
+  temporal_proceso: {
+    text:
     `Para solicitar la baja temporal, debes consultar el procedimiento vigente, reunir la documentación que te indiquen y dar seguimiento con la coordinación o el área correspondiente.`,
+        image: {
+      src: TEMPORAL_IMAGE,
+      alt: "Infografia de baja temporal"
+    },
+    link: {
+      href: TEMPORAL_IMAGE,
+      text: "Abrir imagen en grande"
+    }
+  },
 
   temporal_recomendaciones:
     `Antes de solicitar la baja temporal, revisa las implicaciones académicas y administrativas que puede tener en tu trayectoria escolar.`,
@@ -347,8 +361,18 @@ Ahí encontrarás los formularios disponibles y las instrucciones para cada trá
   definitiva_info:
     `La baja definitiva es el trámite mediante el cual el estudiante solicita su separación permanente del programa educativo o de la institución, según corresponda.`,
 
-  definitiva_proceso:
+  definitiva_proceso: {
+    text:
     `Para solicitar la baja definitiva, debes consultar el procedimiento oficial, entregar la documentación requerida y confirmar con el área correspondiente los pasos a seguir.`,
+        image: {
+      src: EXTEMPORANEA_DEFINITIVA_IMAGE,
+      alt: "Infografia de baja definitiva y extemporanea"
+    },
+    link: {
+      href: EXTEMPORANEA_DEFINITIVA_IMAGE,
+      text: "Abrir imagen en grande"
+    }    
+  },
 
   definitiva_recomendaciones:
     `Antes de realizar una baja definitiva, asegúrate de conocer sus consecuencias académicas y administrativas, ya que puede tratarse de un trámite irreversible.`
