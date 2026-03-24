@@ -6,6 +6,7 @@ const EXTEMPORANEA_DEFINITIVA_IMAGE = "img/baja extemporanea y definitiva.png";
 const PRESENTACION_IMAGE = "img/carta presentación.png";
 const EQUIVALENCIAS_IMAGE = "img/EQUIVALENCIAS.png";
 
+const STORAGE_KEY = "chatbot_final_responses";
 const chatMessages = document.getElementById("chatMessages");
 const messageInput = document.getElementById("messageInput");
 const sendBtn = document.getElementById("sendBtn");
