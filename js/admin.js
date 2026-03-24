@@ -1,62 +1,77 @@
-const STORAGE_KEY = "chatbot_final_responses";
+const fakeConversations = [
+  {
+    id: "Chat #001",
+    lastMessage: "¿Qué necesito para reinscripción?",
+    time: "24/03/2026 - 10:30 AM",
+    messages: [
+      { role: "user", text: "Hola", time: "10:28 AM" },
+      { role: "bot", text: "Bienvenido al asistente de Logística Internacional y Aduanas.", time: "10:28 AM" },
+      { role: "user", text: "1", time: "10:29 AM" },
+      { role: "bot", text: "Inscripción y reinscripción:\n\n1. Cómo llenar la solicitud de inscripción\n2. Requisitos de reinscripción\n3. Documentación necesaria\n4. Fechas de inscripción\n9. Volver al menú principal", time: "10:29 AM" }
+    ]
+  },
+  {
+    id: "Chat #002",
+    lastMessage: "¿Cómo inicio mi servicio social?",
+    time: "24/03/2026 - 10:45 AM",
+    messages: [
+      { role: "user", text: "2", time: "10:44 AM" },
+      { role: "bot", text: "Servicio social:\n\n1. Requisitos\n2. Proceso de inicio\n3. Documentos necesarios\n9. Volver al menú principal", time: "10:45 AM" }
+    ]
+  },
+  {
+    id: "Chat #003",
+    lastMessage: "No entiendo la solicitud",
+    time: "24/03/2026 - 11:02 AM",
+    messages: [
+      { role: "user", text: "1", time: "11:01 AM" },
+      { role: "bot", text: "Cómo llenar la solicitud de inscripción:\n\n1. Ver instrucciones generales\n2. Ver imagen de ejemplo con apartados numerados\n3. Qué va en cada apartado\n4. Qué revisar antes de entregarla\n5. Ver enlace de horarios\n9. Volver al menú principal", time: "11:02 AM" }
+    ]
+  }
+];
 
-const defaultResponses = {
-  solicitud_general: "Texto de ejemplo...",
-  solicitud_apartados: "Texto de ejemplo...",
-  solicitud_revision: "Texto de ejemplo...",
-  solicitud_horarios: "https://www.uv.mx/coatza/admon/horarios/"
-};
+const conversationList = document.getElementById("conversationList");
+const messagesView = document.getElementById("messagesView");
 
-const editorGrid = document.getElementById("editorGrid");
-const saveBtn = document.getElementById("saveBtn");
-const resetBtn = document.getElementById("resetBtn");
-const statusText = document.getElementById("statusText");
+function renderConversationList() {
+  conversationList.innerHTML = "";
 
-function loadResponses() {
-  const saved = localStorage.getItem(STORAGE_KEY);
-  return saved ? JSON.parse(saved) : defaultResponses;
-}
+  fakeConversations.forEach((conversation, index) => {
+    const item = document.createElement("article");
+    item.className = `conversation-item ${index === 0 ? "active" : ""}`;
 
-function render() {
-  const data = loadResponses();
-  editorGrid.innerHTML = "";
+    item.innerHTML = `
+      <h3>${conversation.id}</h3>
+      <p>Último mensaje: "${conversation.lastMessage}"</p>
+      <span>${conversation.time}</span>
+    `;
 
-  Object.keys(data).forEach(key => {
-    const card = document.createElement("div");
-    card.className = "editor-card";
+    item.addEventListener("click", () => {
+      document.querySelectorAll(".conversation-item").forEach(card => card.classList.remove("active"));
+      item.classList.add("active");
+      renderMessages(conversation.messages);
+    });
 
-    const title = document.createElement("h3");
-    title.textContent = key;
-
-    const textarea = document.createElement("textarea");
-    textarea.value = data[key];
-    textarea.dataset.key = key;
-
-    card.appendChild(title);
-    card.appendChild(textarea);
-    editorGrid.appendChild(card);
+    conversationList.appendChild(item);
   });
 }
 
-function save() {
-  const textareas = document.querySelectorAll("textarea");
+function renderMessages(messages) {
+  messagesView.innerHTML = "";
 
-  const data = {};
-  textareas.forEach(t => {
-    data[t.dataset.key] = t.value;
+  messages.forEach((message) => {
+    const bubble = document.createElement("div");
+    bubble.className = `admin-message ${message.role}`;
+
+    bubble.innerHTML = `
+      <span class="message-role">${message.role === "user" ? "Estudiante" : "Bot"}</span>
+      <p>${message.text}</p>
+      <small>${message.time}</small>
+    `;
+
+    messagesView.appendChild(bubble);
   });
-
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-  statusText.textContent = "Guardado correctamente";
 }
 
-function reset() {
-  localStorage.removeItem(STORAGE_KEY);
-  render();
-  statusText.textContent = "Restablecido";
-}
-
-saveBtn.onclick = save;
-resetBtn.onclick = reset;
-
-render();
+renderConversationList();
+renderMessages(fakeConversations[0].messages);

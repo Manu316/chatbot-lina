@@ -1,31 +1,100 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Admin Chatbot</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Chatbot</title>
   <link rel="stylesheet" href="css/admin.css">
+  <link rel="icon" type="image/png" href="img/logo_chatbot.png">  
 </head>
 <body>
+  <main class="admin-layout">
 
-<main class="admin-page">
+    <aside class="admin-sidebar">
+      <div class="admin-logo">
+        <div class="admin-badge">LA</div>
+        <div>
+          <h1>Panel Admin</h1>
+          <p>Chatbot académico</p>
+        </div>
+      </div>
 
-  <aside class="admin-sidebar">
-    <h1>Panel Admin</h1>
+      <nav class="admin-nav">
+        <button class="nav-btn active">Conversaciones</button>
+        <button class="nav-btn">Estadísticas</button>
+        <button class="nav-btn">Usuarios</button>
+        <button class="nav-btn">Configuración</button>
+      </nav>
+    </aside>
 
-    <button id="saveBtn">Guardar cambios</button>
-    <button id="resetBtn">Restablecer</button>
+    <section class="conversation-list-panel">
+      <div class="panel-header">
+        <h2>Conversaciones</h2>
+        <input type="text" placeholder="Buscar conversación..." class="search-input">
+      </div>
 
-    <p id="statusText">Sin cambios</p>
-  </aside>
+      <div class="conversation-list" id="conversationList">
+        <article class="conversation-item active">
+          <h3>Chat #001</h3>
+          <p>Último mensaje: “¿Qué necesito para reinscripción?”</p>
+          <span>24/03/2026 - 10:30 AM</span>
+        </article>
 
-  <section class="admin-content">
-    <h2>Editar respuestas</h2>
-    <div id="editorGrid"></div>
-  </section>
+        <article class="conversation-item">
+          <h3>Chat #002</h3>
+          <p>Último mensaje: “¿Cómo inicio mi servicio social?”</p>
+          <span>24/03/2026 - 10:45 AM</span>
+        </article>
 
-</main>
+        <article class="conversation-item">
+          <h3>Chat #003</h3>
+          <p>Último mensaje: “No entiendo la solicitud”</p>
+          <span>24/03/2026 - 11:02 AM</span>
+        </article>
+      </div>
+    </section>
 
-<script src="js/admin.js"></script>
+    <section class="conversation-detail-panel">
+      <div class="panel-header detail-header">
+        <div>
+          <h2>Detalle de conversación</h2>
+          <p>Chat #001</p>
+        </div>
+        <div class="detail-actions">
+          <button class="action-btn">Exportar</button>
+          <button class="action-btn danger">Eliminar</button>
+        </div>
+      </div>
+
+      <div class="messages-view" id="messagesView">
+        <div class="admin-message user">
+          <span class="message-role">Estudiante</span>
+          <p>Hola</p>
+          <small>10:28 AM</small>
+        </div>
+
+        <div class="admin-message bot">
+          <span class="message-role">Bot</span>
+          <p>Bienvenido al asistente de Logística Internacional y Aduanas.</p>
+          <small>10:28 AM</small>
+        </div>
+
+        <div class="admin-message user">
+          <span class="message-role">Estudiante</span>
+          <p>1</p>
+          <small>10:29 AM</small>
+        </div>
+
+        <div class="admin-message bot">
+          <span class="message-role">Bot</span>
+          <p>Inscripción y reinscripción: ...</p>
+          <small>10:29 AM</small>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="js/admin.js"></script>
 </body>
 </html>
