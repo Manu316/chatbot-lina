@@ -32,6 +32,7 @@ Selecciona una opción escribiendo el número correspondiente:
 7. Contacto con coordinación
 8. Baja temporal del periodo
 9. Baja definitiva
+10. PDFs
 0. Ver menú principal nuevamente`,
     options: {
       "1": "inscripcion",
@@ -43,6 +44,7 @@ Selecciona una opción escribiendo el número correspondiente:
       "7": "contacto",
       "8": "temporal",
       "9": "definitiva",
+      "10": "pdf_menu",
       "0": "main"
     }
   },
@@ -202,7 +204,31 @@ llia_fcacoatza@.uv.mx
       "3": "definitiva_recomendaciones",
       "9": "main"
     }
-  }  
+  },
+
+  pdf_menu: {
+    text:
+`Formatos y documentos disponibles:
+
+1. Baja extemporánea
+2. Baja temporal
+3. Carta de presentación
+4. Solicitud de equivalencias
+5. Transferencia AFBG
+6. Transferencia AFEL
+7. Última oportunidad
+9. Volver al menú principal`,
+  options: {
+    "1": "pdf_baja_extemporanea",
+    "2": "pdf_baja_temporal",
+    "3": "pdf_carta",
+    "4": "pdf_equivalencias",
+    "5": "pdf_afbg",
+    "6": "pdf_afel",
+    "7": "pdf_ultima",
+    "9": "main"
+  }
+}
 };
 
 const finalResponses = {
@@ -375,8 +401,66 @@ Ahí encontrarás los formularios disponibles y las instrucciones para cada trá
     }    
   },
 
-  definitiva_recomendaciones:
+  definitiva_recomendaciones: {
+    text:
     `Antes de realizar una baja definitiva, asegúrate de conocer sus consecuencias académicas y administrativas, ya que puede tratarse de un trámite irreversible.`
+  },
+
+  pdf_baja_extemporanea: {
+    text: "Aquí puedes descargar el formato de Baja Extemporánea.",
+    pdf: {
+      href: "pdf/baja-extemporanea.pdf",
+      text: "Abrir PDF"
+    }
+  },
+
+  pdf_baja_temporal: {
+    text: "Aquí puedes descargar el formato de Baja Temporal.",
+    pdf: {
+      href: "pdf/baja-temporal.pdf",
+      text: "Abrir PDF"
+    }
+  },
+
+  pdf_carta: {
+    text: "Aquí puedes descargar la Carta de Presentación.",
+    pdf: {
+      href: "pdf/carta-presentacion.pdf",
+      text: "Abrir PDF"
+    }
+  },
+
+  pdf_equivalencias: {
+    text: "Aquí puedes descargar la Solicitud de Equivalencias.",
+    pdf: {
+      href: "pdf/equivalencias.pdf",
+      text: "Abrir PDF"
+    }
+  },
+
+  pdf_afbg: {
+    text: "Aquí puedes descargar el formato de Transferencia de AFBG.",
+    pdf: {
+      href: "pdf/transferencia-afbg.pdf",
+      text: "Abrir PDF"
+    }
+  },
+
+  pdf_afel: {
+    text: "Aquí puedes descargar el formato de Transferencia de AFEL.",
+    pdf: {
+      href: "pdf/transferencia-afel.pdf",
+      text: "Abrir PDF"
+    }
+  },
+
+  pdf_ultima: {
+    text: "Aquí puedes descargar el formato de Última Oportunidad.",
+    pdf: {
+      href: "pdf/ultima-oportunidad.pdf",
+      text: "Abrir PDF"
+    }
+  }  
   };
 
 function addMessage(content, sender = "bot") {
@@ -416,6 +500,16 @@ function addMessage(content, sender = "bot") {
       link.textContent = content.link.text || "Abrir imagen";
       bubble.appendChild(link);
     }
+
+    if (content.pdf) {
+      const pdfLink = document.createElement("a");
+      pdfLink.href = content.pdf.href;
+      pdfLink.target = "_blank";
+      pdfLink.rel = "noopener noreferrer";
+      pdfLink.className = "chat-pdf-link";
+      pdfLink.textContent = content.pdf.text || "Abrir PDF";
+      bubble.appendChild(pdfLink);
+    }    
   }
 
   wrapper.appendChild(label);
